@@ -37,7 +37,7 @@ def load_config():
             "spam_message": "안녕하세요, 블랙너스 셀프봇입니다!",
             "delay": 1000,
             "spam_count": 5,
-            "잠수": {"enabled": False, "message": "현재 잠수 중입니다. 나중에 다시 시도해주세요."},
+            "잠수": {"enabled": False, "message": "잠수임"},
             "welcome_message": {"channel_id": "", "message": "", "enabled": False},
             "school_info": {"name": "", "grade": "", "class": ""},
             "promo_messages": {},
@@ -49,8 +49,8 @@ def load_config():
             "emoji_reactions": {},
             "saved_mentions": {},
             "words": ["블랙너스", "셀프봇", "김민준", "제작", "discord"],
-            "autoreply": {"enabled": False, "users": [], "channels": [], "messages": ["자동 응답 메시지 1", "자동 응답 메시지 2"]},
-            "afk": {"enabled": False, "message": "현재 AFK 상태입니다. 가능한 한 빨리 답장해 드리겠습니다."},
+            "autoreply": {"enabled": False, "users": [], "channels": [], "messages": ["1", "2"]},
+            "afk": {"enabled": False, "message": "현재 AFK 상태입니다"},
             "copycat": {"enabled": False, "users": []},
             "remote-users": [],
             "auto_reply_users": {},
@@ -63,7 +63,7 @@ config = load_config()
 
 token = input("토큰을 입력하세요: ")
 prefix = config.get("prefix", "!")
-message_generator = itertools.cycle(config.get("autoreply", {}).get("messages", ["자동 응답 메시지 1", "자동 응답 메시지 2"]))
+message_generator = itertools.cycle(config.get("autoreply", {}).get("messages", ["1", "2"]))
 
 def save_config(config_data):
     if not os.path.exists("config"):
